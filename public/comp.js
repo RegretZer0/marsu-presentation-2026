@@ -152,9 +152,9 @@ document.addEventListener("keydown", (event) => {
 
 // Run everything on DOM Load
 document.addEventListener("DOMContentLoaded", () => {
-  loadComponent("header-placeholder", "header.html");
-  loadComponent("footer-placeholder", "footer.html");
+  loadComponent("header-placeholder", "/header.html");
+  loadComponent("footer-placeholder", "/footer.html");
 
   // Load the navigation arrows and setup links immediately after
-  loadComponent("nav-placeholder", "page-nav.html", setupArrowNavigation);
+  loadComponent("nav-placeholder", "/page-nav.html", setupArrowNavigation);
 });
