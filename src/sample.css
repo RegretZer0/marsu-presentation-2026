@@ -1,0 +1,187 @@
+/* --- GLOBAL SITE WRAPPER --- */
+body {
+  background-color: #660033; /* MarSU Burgundy Brand Base */
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  gap: 80px; /* Snugs the text closer to your newly enlarged slider window */
+}
+
+/* --- CAROUSEL WINDOW REGION --- */
+.carousel-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Expanded vertical height to handle your larger center image */
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- THE CARD OVERRIDES (Enlarged Card Canvas Base) --- */
+.card {
+  position: absolute;
+  /* Made the base card size much larger */
+  width: 80%;
+  height: 550px;
+  border-radius: 20px;
+  overflow: hidden;
+  /*   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8); */
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  /* Absolute Center Point Tracking Configuration */
+  left: 50%;
+  top: 42%;
+  margin-left: -585px; /* Balanced half offset (-720px / 2) */
+  margin-top: -200px; /* Balanced half offset (-400px / 2) */
+  transform: translate3d(0, 0, 0) scale(0.65);
+  -webkit-transform: translate3d(0, 0, 0) scale(0.65);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+  opacity: 0.15; /* Makes background items more subtle so the main card pops */
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* THE ACTIVE CENTER COMPONENT (Massive Premium Presentation Layer) */
+.card.center {
+  z-index: 10;
+  transform: translate3d(0, 0, 0) scale(1.15); /* Scales outward to present massive details clearly */
+  -webkit-transform: translate3d(0, 0, 0) scale(1.15);
+  /*   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7) */
+  opacity: 1;
+}
+
+/* --- HORIZONTAL TRACK LAYERS (Re-calibrated for bigger cards) --- */
+.card.left-2 {
+  transform: translate3d(-540px, 0, 0) scale(0.55);
+  opacity: 0.03;
+  z-index: 1;
+}
+
+.card.left-1 {
+  transform: translate3d(-300px, 0, 0) scale(0.8);
+  opacity: 0.3;
+  z-index: 5;
+}
+
+.card.right-1 {
+  transform: translate3d(300px, 0, 0) scale(0.8);
+  opacity: 0.3;
+  z-index: 5;
+}
+
+.card.right-2 {
+  transform: translate3d(540px, 0, 0) scale(0.55);
+  opacity: 0.03;
+  z-index: 1;
+}
+
+.card.hidden {
+  transform: translate3d(0, 0, 0) scale(0.2);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- LOWER TEXT & DOT CONTROLS (Tuned smaller and tighter) --- */
+
+.member-info {
+  display: inline-block;
+  position: relative;
+  padding: 0 140px; /* Clean tracking space for gold bars */
+}
+
+/* Decorative lines adjusted slightly to fit the cleaner text block */
+.member-info::before,
+.member-info::after {
+  content: "";
+  position: absolute;
+  top: 18px; /* Perfectly aligns with center height of smaller heading text */
+  width: 90px;
+  height: 2px;
+  background-color: #ffd700;
+}
+
+.member-info::before {
+  left: 0;
+}
+.member-info::after {
+  right: 0;
+}
+
+.member-name {
+  color: #ffd700;
+  font-size: 0.7rem; /* Scaled down from 2.4rem for high-end sleekness */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.member-role {
+  color: #ffffff;
+  font-size: 0.8rem; /* Scaled down from 1.1rem */
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 8px 0 0 0;
+  opacity: 0.75;
+}
+
+/* --- CAROUSEL TRACK DOT PADS --- */
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 6px; /* Made dots slightly smaller to balance layout */
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 215, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.dot.active {
+  background-color: #ffd700;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px #ffd700;
+}
